@@ -29,7 +29,7 @@ class App extends Component {
       <Wrapper>
       {this.state.characters.map(characters => (
         <Headshot
-        reorderHeadshots = {this.reorderHeadshots}
+          reorderHeadshots = {this.reorderHeadshots}
           id={characters.id}
           key={characters.id}
           name={characters.name}

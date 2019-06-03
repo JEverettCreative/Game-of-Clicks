@@ -7,6 +7,14 @@ function NavBar() {
             <span className="navbar-brand mb-0 h1">
                 Game of Clicks
             </span>
+            <ul className="navbar-nav justify-content-around">
+                <li className="nav-item">
+                    Click an image to begin!
+                </li>
+                <li className="nav-item">
+                    Score: <p className="score">0</p>
+                </li>
+            </ul>
         </nav>
     )
 }

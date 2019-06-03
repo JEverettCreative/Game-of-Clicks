@@ -12,6 +12,14 @@ class App extends Component {
     characters
   };
 
+  reorderHeadshots = id => {
+    const characters = this.state.characters.sort(function(a, b) {
+      return 0.5 - Math.random()
+    });
+
+    this.setState({ characters });
+  };
+
 
   render() {
     return (
@@ -21,6 +29,7 @@ class App extends Component {
       <Wrapper>
       {this.state.characters.map(characters => (
         <Headshot
+        reorderHeadshots = {this.reorderHeadshots}
           id={characters.id}
           key={characters.id}
           name={characters.name}

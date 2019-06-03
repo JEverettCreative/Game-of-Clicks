@@ -8,6 +8,56 @@
         "id": 2,
         "name": "Daenarys Targaryen",
         "image": "../../Imgs/dany.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Arya Stark",
+        "image": "../../Imgs/arya.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Cersei Lannister",
+        "image": "../../Imgs/cersei.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Khal Drogo",
+        "image": "../../Imgs/drogo.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Jaime Lannister",
+        "image": "../../Imgs/jaime.jpeg"
+    },
+    {
+        "id": 7,
+        "name": "Littlefinger",
+        "image": "../../Imgs/littlefinger.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Lyanna Mormont",
+        "image": "../../Imgs/lyanna.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Sansa Stark",
+        "image": "../../Imgs/sansa.jpg"
+    },
+    {
+        "id": 10,
+        "name": "Tormund Giantsbane",
+        "image": "../../Imgs/tormund.jpg"
+    },
+    {
+        "id": 11,
+        "name": "Tyrion Lannister",
+        "image": "../../Imgs/tyrion.jpg"
+    },
+    {
+        "id": 12,
+        "name": "Lord Varys",
+        "image": "../../Imgs/varys.jpg"
     }
     
 ]

@@ -1,0 +1,13 @@
+[
+    {
+        "id": 1,
+        "name": "Jon Snow",
+        "image": "../../Imgs/jonsnow.jpg"
+    },
+    {
+        "id": 1,
+        "name": "Daenarys Targaryen",
+        "image": "../../Imgs/dany.jpg"
+    }
+    
+]

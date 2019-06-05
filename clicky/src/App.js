@@ -32,6 +32,11 @@ class App extends Component {
       this.setState({ characters });
       console.log(this.state.score);
       console.log(this.state.clicked);
+    } 
+    if (this.state.clicked) {
+      this.setState(prevState => ({
+        clicked: !prevState.clicked
+      }));
     }
     
     this.setState({ characters });

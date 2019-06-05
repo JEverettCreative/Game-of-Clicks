@@ -14,7 +14,6 @@ class App extends Component {
     
     this.state = {
       characters,
-      clicked: false,
       score: 0
     };
   }
@@ -37,7 +36,7 @@ class App extends Component {
       this.setState(prevState => ({
         clicked: !prevState.clicked
       }));
-      this.setState({ score: 0 })
+      // this.setState({ score: this.state.score - 1 })
       console.log(this.state.clicked);
     }
     

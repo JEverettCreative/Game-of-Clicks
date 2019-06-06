@@ -24,8 +24,6 @@ class App extends Component {
       if(this.state.characters[i].id === id && this.state.characters[i].clicked) {
          // If already clicked, end game
         // Reset score to zero
-        debugger;
-        alert("This ran.");
         score = 0;
         continueHappyPath = false;
         let characters = this.state.characters.map(item => {

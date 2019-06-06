@@ -9,39 +9,55 @@ import characters from "./characters.json";
 
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    
-    this.state = {
+  
+    state = {
       characters,
       score: 0
-    };
-  }
+    }; 
 
   reorderHeadshots = id => {
-    const characters = this.state.characters.sort(function(a, b) {
-      return 0.5 - Math.random()
-    });
-
-    if(!this.state.clicked) {
-      this.setState(prevState => ({
-        clicked: !prevState.clicked
-      }));
-      this.setState({ score: this.state.score + 1 });
-      this.setState({ characters });
-      console.log(this.state.score);
-      console.log(this.state.clicked);
-    } 
-    if (this.state.clicked) {
-      this.setState(prevState => ({
-        clicked: !prevState.clicked
-      }));
-      // this.setState({ score: this.state.score - 1 })
-      console.log(this.state.clicked);
+    let continueHappyPath = true;
+    let score = this.state.score + 1;
+    // Check if this image has been clicked
+      // Else
+    for (var i = 0; i < this.state.characters.length; i++) {
+      if(this.state.characters[i].id === id && this.state.characters[i].clicked) {
+         // If already clicked, end game
+        // Reset score to zero
+        debugger;
+        alert("This ran.");
+        score = 0;
+        continueHappyPath = false;
+        let characters = this.state.characters.map(item => {
+          return {
+            ...item,
+            clicked: false
+          };
+        })
+      }
     }
     
-    this.setState({ characters });
+    // Update the clicked property of that component
+    if(continueHappyPath) {
+      let updatedCharacters = this.state.characters.map(item => {
+        if (item.id === id) {
+          item.clicked = true;
+        }
+        return item;
+      });
+    }
+     
+    let characters = this.state.characters.sort(function(a, b) {
+      return 0.5 - Math.random()
+    });
+    this.setState({ characters, score });
   };
+
+//   sortImages = (characters) => {
+//     characters.sort(function(a, b) {
+//     return 0.5 - Math.random()
+//   });
+// };
 
 
   render() {
@@ -55,14 +71,14 @@ class App extends Component {
       </NavBar>
       <Jumbotron></Jumbotron>
       <Wrapper>
-      {this.state.characters.map(characters => (
+      {this.state.characters.map(character => (
         <Headshot
           reorderHeadshots = {this.reorderHeadshots}
-          id={characters.id}
-          key={characters.id}
-          name={characters.name}
-          image={characters.image}
-          clicked={characters.clicked}
+          id={character.id}
+          key={character.id}
+          name={character.name}
+          image={character.image}
+          clicked={character.clicked}
         />
       ))}
       </Wrapper>

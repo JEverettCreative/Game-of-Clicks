@@ -5,21 +5,34 @@ import Wrapper from './components/Wrapper';
 import Headshot from "./components/Headshot";
 import Score from "./components/Score";
 import characters from "./characters.json";
+import ReactModal from "react-modal";
+ReactModal.setAppElement("#modal");
 
+const customStyles = {
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)'
+  }
+};
 
 
 class App extends Component {
   
     state = {
       characters,
-      score: 0
+      score: 0,
+      showModal: false
     }; 
+    
 
   reorderHeadshots = id => {
     let continueHappyPath = true;
     let score = this.state.score + 1;
     // Check if this image has been clicked
-      // Else
     for (var i = 0; i < this.state.characters.length; i++) {
       if(this.state.characters[i].id === id && this.state.characters[i].clicked) {
          // If already clicked, end game
@@ -51,11 +64,22 @@ class App extends Component {
     this.setState({ characters, score });
   };
 
-  componentDidUpdate() {
-    if(this.state.score === 12) {
-      console.log("You won!");
-    }
+componentDidUpdate() {
+  // Lowering win threshold for testing
+  if(this.state.score === 12 && this.state.showModal === false) {
+    this.handleOpenModal();
+    this.setState({ score: 0 });
   }
+}
+
+  // Modal-related functionality
+handleOpenModal = () => {
+  this.setState({ showModal: true });
+}
+
+handleCloseModal = () => {
+    this.setState({ showModal: false });
+};
 
 
   render() {
@@ -80,6 +104,15 @@ class App extends Component {
         />
       ))}
       </Wrapper>
+      <ReactModal 
+            isOpen={this.state.showModal}
+            onRequestClose={this.handleCloseModal}
+            style={customStyles}
+            contentLabel="Sign In Modal"
+            >
+            <h3>You Won!</h3>
+            <button onClick={this.handleCloseModal}>Close</button>
+        </ReactModal>   
       </>
     )
   }

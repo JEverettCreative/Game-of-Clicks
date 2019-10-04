@@ -51,11 +51,11 @@ class App extends Component {
     this.setState({ characters, score });
   };
 
-//   sortImages = (characters) => {
-//     characters.sort(function(a, b) {
-//     return 0.5 - Math.random()
-//   });
-// };
+  componentDidUpdate() {
+    if(this.state.score === 12) {
+      console.log("You won!");
+    }
+  }
 
 
   render() {

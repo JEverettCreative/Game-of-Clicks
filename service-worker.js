@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Game-of-Clicks/precache-manifest.7280488e6908360c1b4be0a72173527d.js"
+  "/Game-of-Clicks/precache-manifest.5adeb36ac3216cde345c89095bf3ce1b.js"
 );
 
 self.addEventListener('message', (event) => {

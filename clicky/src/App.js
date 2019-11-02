@@ -5,6 +5,7 @@ import Wrapper from './components/Wrapper';
 import Headshot from "./components/Headshot";
 import Score from "./components/Score";
 import characters from "./characters.json";
+import victoryMusic from "./GoT_Victory.mp3";
 import ReactModal from "react-modal";
 ReactModal.setAppElement("#modal");
 
@@ -65,10 +66,13 @@ class App extends Component {
   };
 
 componentDidUpdate() {
+  this.myRef = React.createRef();
   // Lowering win threshold for testing
-  if(this.state.score === 12 && this.state.showModal === false) {
+  if(this.state.score === 3 && this.state.showModal === false) {
     this.handleOpenModal();
-    this.setState({ score: 0 });
+    // Play music cue for victory
+    this.player.src = victoryMusic;
+    this.player.play();
   }
 }
 
@@ -78,7 +82,16 @@ handleOpenModal = () => {
 }
 
 handleCloseModal = () => {
-    this.setState({ showModal: false });
+  // Reset all characters to clicked false for a new game
+  let characters = this.state.characters.map(item => {
+    return {
+      ...item,
+      clicked: false
+    };
+  })
+    this.setState({ showModal: false, score: 0, characters });
+    // If it's still running, end music
+    this.player.pause();
 };
 
 
@@ -86,6 +99,7 @@ handleCloseModal = () => {
     return (
       <>
       <NavBar>
+        <audio ref={ref => this.player = ref} />
         <Score
         reorderHeadshots = {this.reorderHeadshots}
         score={this.state.score}

@@ -16,10 +16,20 @@ const customStyles = {
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
+    transform             : 'translate(-50%, -50%)',
+    backgroundColor       : '#d4af37',
+    height                : '200px',
+    width                 : '300px',
+    border                : '2px solid black',
+    textAlign             : 'center'
+  },
+  button : {
+    backgroundColor       : '#ddd',
+    marginTop             : '40px',
+    borderRadius          : '.25rem',
+    border                : '1px solid black'
   }
 };
-
 
 class App extends Component {
   
@@ -122,10 +132,14 @@ handleCloseModal = () => {
             isOpen={this.state.showModal}
             onRequestClose={this.handleCloseModal}
             style={customStyles}
-            contentLabel="Sign In Modal"
+            contentLabel="Victory Modal"
             >
             <h3>You Won!</h3>
-            <button onClick={this.handleCloseModal}>Close</button>
+            <button 
+              onClick={this.handleCloseModal}
+              style={customStyles.button}>
+              New Game
+            </button>
         </ReactModal>   
       </>
     )
